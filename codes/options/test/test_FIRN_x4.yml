@@ -1,0 +1,49 @@
+name: FIRN_x4
+suffix: ~  # add suffix to saved images
+model: FIRN
+distortion: sr
+scale: 4
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [0]
+
+datasets:
+  test_1:  # the 1st test dataset
+    name: set5
+    mode: LQGT
+    dataroot_GT: 'D:\valtest\Set5\'
+    dataroot_LQ: ~ # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+  test_2:  # the 2st test dataset
+    name: set14
+    mode: LQGT
+    dataroot_GT: 'D:\valtest\Set14\'
+    dataroot_LQ: ~ # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+  test_3:  # the 3st test dataset
+    name: B100
+    mode: LQGT
+    dataroot_GT: 'D:\valtest\B100\'
+    dataroot_LQ: ~ # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+  test_4:  # the 3st test dataset
+    name: Urban100
+    mode: LQGT
+    dataroot_GT: 'D:\valtest\urban100\'
+    dataroot_LQ: ~ # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+  test_5:
+    name: val_DIV2K
+    mode: LQGT
+    dataroot_GT: 'D:\valtest\DIV2K_valid_HR\'
+    dataroot_LQ: ~ # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+
+
+#### network
+network_G:
+  which_model_G:
+    subnet_type: DBNet
+  in_nc: 3
+  out_nc: 3
+  block_num: [8, 8]
+  scale: 4
+
+
+#### path
+path:
+  pretrain_model_G: 'C:\Users\Administrator\Downloads\Invertible-Image-Rescaling-master\Invertible-Image-Rescaling-master\experiments\01_FIRN_DB_x4_scratch_DF2K_Charbonnier\models\latest_G.pth'
