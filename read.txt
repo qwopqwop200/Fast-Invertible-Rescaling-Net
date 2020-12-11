@@ -1,0 +1,2 @@
+
+The code is based on invertible image rescaling (https://github.com/pkuxmq/Invertible-Image-Rescaling/tree/master/codes), and the usage is similar.
